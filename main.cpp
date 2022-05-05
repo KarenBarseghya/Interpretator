@@ -12,7 +12,7 @@
 		condition_check
 		ifn = name > second_name :
 		print = second_name :
-		endl :
+		exit :
 		
 		loop operation
 		yet = name > second_name :
