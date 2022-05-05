@@ -1,3 +1,28 @@
+/*
+		Language syntax
+		
+		defintition
+		type name = value :
+		
+		operators 
+		name = name + second_name :
+		print syntax
+		print = name :
+		
+		condition_check
+		ifn = name > second_name :
+		print = second_name :
+		endl :
+		
+		loop operation
+		yet = name > second_name :
+		print = a :
+		name = name - second_name :
+		endl :
+		
+		printer
+		print = name :
+		*/
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -36,7 +61,15 @@ int main()
 	std::string line{};
 	int line_yet = 0;
 	int line_counter = 0;
-	std::ifstream fin("text.txt");
+	std::string txt_file_name{};
+	std::cout << "Please enter your txt file name : ";
+	std::cin >> txt_file_name{};
+	std::ifstream fin(txt_file_name);
+	if(!fin.is_open())
+	{
+		std::cout << "file isn't open";
+		exit(0);
+	}
 	while(!fin.eof())
 	{
 	   
