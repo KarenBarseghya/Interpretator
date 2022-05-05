@@ -327,15 +327,15 @@ int main()
 	}
 	void printer(std::string name , std::string line)
 	{
-		
+		bool print_tester = false;
 		for(int a = 0 ; a < num.size() ; ++a)
-        {
+        	{
         		if(line.substr(name.length() + SIZE , num[a].name.length()) == num[a].name)
                 	{
                 		std::cout << num[a].value;
                        	 	break;
 			}
-        }
+       	 	}
 		for(int a = 0 ; a < grs.size() ; ++a)
 		{
 			if(line.substr(name.length() + SIZE , grs[a].name.length()) == grs[a].name)
@@ -344,6 +344,17 @@ int main()
 				break;
 			}			
 		}
+		
+		if(!print_tester)
+                {
+                        std::string printer{};
+                        for(int i = first_name_founder(line).length() + SIZE ; line[i] != ' ' ; ++i )
+                        {
+                                printer += line[i];
+                        }
+                        	std::cout << printer;
+                }
+
 	}
 	
 	void condition_check(std::string line)
