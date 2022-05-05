@@ -50,6 +50,7 @@ double do_operation(std::string line , char sim);
 void creater_grs(Words Desc , std::string line);
 void printer(std::string name , std::string line);
 void condition_check(std::string line);
+void error_function(std::string line , int line_counter);
 
 std::vector <Integers> num;
 std::vector <Words> grs;
@@ -74,12 +75,7 @@ int main()
 	{
 	   
 	    std::getline(fin , line);
-	    if(line[line.length() - 1] != ':')
-	    {
-		std::cout << "missed line ending symbol ':'";
-			exit(0);
-		
-	    }
+	    
 	    ++line_counter;
 	    if(first_name_founder(line) == "endl" && !tester)
 	    {
@@ -167,6 +163,7 @@ int main()
 				}
 			}
 		}
+		void error_function(line , line_counter);
 	   
 	}
 	}
@@ -359,4 +356,47 @@ int main()
 		    }
 		}
 	}
+	
+	void error_function(std::string line , int line_counter)
+        {
+                bool line_tester = false;
+                for(int i = 0 ; i < num.size() ; ++i)
+                {  
+                   if(first_name_founder(line) == num[i].name || first_name_founder(line) == "grs" || first_name_founder(line) == "num")
+                   {    
+                        line_tester = true;
+                   }
+                }
+                for(int i = 0 ; i < grs.size() ; ++i)
+                {
+                        if(first_name_founder(line) == grs[i].name)
+                        {
+                                line_tester = true;
+                        }
+                }
+                for(int i = 0 ; i < Keywords_Size ; ++i)
+                {
+                        if(first_name_founder(line) == key_words[i])
+                        {
+                                line_tester = true;
+                        }
+                }
+                if(line.length() == 0)
+                {
+                        line_tester = true;
+                }
+                if(line.length() == 0)
+                {
+                        line_tester = true;
+                }
+
+                if(!line_tester)
+                {
+                        std::cout << "in " << line_counter << " line is unknown word ";
+                        exit(0);
+                }
+
+        }
+
+
 	
