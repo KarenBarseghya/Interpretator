@@ -219,16 +219,13 @@ int main()
  	double do_operation(std::string line , char sim)
  	{
 		int count = 0;
-		int h = 0;
 		int first_element = 0;
 		int second_element = 1;
 		int arr[SIZE];
 		std::string str_arr[SIZE];
-		int i = 0;
 		std::string second_name{};
 		std::string name;
 		name = first_name_founder(line);
-		i = 1;
 		for(int a = 0 ; a < num.size() ; ++a)
 		{
 			if(line.substr(name.length() + SIZE , num[a].name.length()) == num[a].name)
