@@ -87,9 +87,9 @@ int main()
 		    fin.close();
 		    fin.open("text.txt");
 		    std::string str = {};
-		    for(int a = 0 ; a < line_yet ; a++)
+		    for(int a = 0; a < line_yet; a++)
 		    {
-		        std::getline(fin , str);
+		        std::getline(fin, str);
 		    }
 		    line = str;
 		}
@@ -122,20 +122,20 @@ int main()
 	
         if(test)
         {
-	    if(line.substr(0 , SIZE) == "num")
+	    if(line.substr(0, SIZE) == "num")
         {
-                	creater_Integers(Description , line);	
+                	creater_Integers(Description, line);	
 		}
-		else if(line.substr(0 , SIZE) == "grs")
+		else if(line.substr(0, SIZE) == "grs")
 		{
-			creater_grs(Desc , line);
+			creater_grs(Desc, line);
 		}
 		
-		else if(line.substr(0 , SIZE) != "grs" && line.substr(0 , SIZE) != "num")
+		else if(line.substr(0, SIZE) != "grs" && line.substr(0, SIZE) != "num")
  		{
 			if(first_name_founder(line) == "print")
 			{
-				printer(first_name_founder(line) , line);
+				printer(first_name_founder(line), line);
 			}	
 			for(char c : line)
 			{
@@ -143,19 +143,19 @@ int main()
 				{
 					if(c == '+')
 					{
-						for(int n = 0 ; n < grs.size() ; n++)
+						for(int n = 0; n < grs.size(); n++)
 						{
 							if(grs[n].name == line.substr(0,grs[n].name.length()))
 							{
-								do_operation(line , c);	
+								do_operation(line, c);	
 							}
 						}
 					}
-					for(int n = 0 ; n < num.size() ; ++n)
+					for(int n = 0; n < num.size(); ++n)
 					{
 						if(num[n].name == line.substr(0,num[n].name.length()))
 						{
-							num[n].value = do_operation(line , c);
+							num[n].value = do_operation(line, c);
 						}
 					}
 						
@@ -163,13 +163,13 @@ int main()
 				}
 			}
 		}
-		void error_function(line , line_counter);
+		void error_function(line, line_counter);
 	   
 	}
 	}
 	fin.close();
 }
-	void creater_Integers(Integers Description , std::string line)
+	void creater_Integers(Integers Description, std::string line)
 	{
 		int j = 4;
                 std::string Value;
@@ -179,7 +179,7 @@ int main()
                         Name += line[j];
                         ++j;
                 }
-		for(int a = 0 ; a < line.length() ; ++a)
+		for(int a = 0; a < line.length(); ++a)
                 {
                 	if(line[a] >= '0' && line[a] <= '9')
                         {
@@ -190,7 +190,7 @@ int main()
                	Description.value = (stoi(Value));
                 num.push_back(Description);
 	}
-	void creater_grs(Words Desc , std::string line)
+	void creater_grs(Words Desc, std::string line)
 	{
 		int j = 4;
 		std::string Second_Value;
@@ -200,7 +200,7 @@ int main()
                         Name += line[j];
                         ++j;
                 }
-		for(int a = 0 ; a < line.length() ; ++a)
+		for(int a = 0; a < line.length(); ++a)
                 {
 			if(line[a] == '=')
                         {
@@ -216,7 +216,7 @@ int main()
                         Desc.value = Second_Value;
                         grs.push_back(Desc);
 	}
- 	double do_operation(std::string line , char sim)
+ 	double do_operation(std::string line, char sim)
  	{
 		int count = 0;
 		int first_element = 0;
@@ -228,7 +228,7 @@ int main()
 		name = first_name_founder(line);
 		for(int a = 0 ; a < num.size() ; ++a)
 		{
-			if(line.substr(name.length() + SIZE , num[a].name.length()) == num[a].name)
+			if(line.substr(name.length() + SIZE, num[a].name.length()) == num[a].name)
 			{
 				arr[count] = num[a].value;
 				second_name = num[a].name;
@@ -238,7 +238,7 @@ int main()
 		}
 			if(second_name.length() == 0)
 			{
-			        for(int a = name.length() + SIZE ; line[a] != ' ' ; ++a)
+			        for(int a = name.length() + SIZE; line[a] != ' '; ++a)
 			        {
 			             second_name += line[a];
 			        }
@@ -247,9 +247,9 @@ int main()
 			       
 			}
 			
-		for(int a = 0 ; a < num.size() ; ++a)
+		for(int a = 0; a < num.size(); ++a)
 		{
-			if(line.substr(name.length() + second_name.length() + probels_count , num[a].name.length()) == num[a].name)
+			if(line.substr(name.length() + second_name.length() + probels_count, num[a].name.length()) == num[a].name)
 			{
 				arr[count] = num[a].value;
 				second_name = num[a].name;
@@ -260,7 +260,7 @@ int main()
 		
 		if(second_name.length() == 0)
 		{
-			for(int a = name.length() + h + probels_count + SIZE - 1; line[a] != ' ' ; ++a)
+			for(int a = name.length() + h + probels_count + SIZE - 1; line[a] != ' '; ++a)
 			{
 				second_name += line[a];
 			}
@@ -269,9 +269,9 @@ int main()
 			   ++i;
 		
 		}
-		for(int a = 0 ; a < grs.size() ; ++a)
+		for(int a = 0; a < grs.size(); ++a)
                 {
-                        if(line.substr(name.length() + SIZE , grs[a].name.length()) == grs[a].name)
+                        if(line.substr(name.length() + SIZE, grs[a].name.length()) == grs[a].name)
                         {
                                 str_arr[count] = grs[a].value;
                                 second_name = grs[a].name;
@@ -281,9 +281,9 @@ int main()
                 }
 		
 		
-		for(int a = 0 ; a < grs.size() ; ++a)
+		for(int a = 0; a < grs.size(); ++a)
                 {
-                        if(line.substr(name.length() + second_name.length() + probels_count , grs[a].name.length()) == grs[a].name)
+                        if(line.substr(name.length() + second_name.length() + probels_count, grs[a].name.length()) == grs[a].name)
                         {
                                 str_arr[i] = grs[a].value;
                                 second_name = grs[a].name;
@@ -291,7 +291,7 @@ int main()
                                 break;
                         }
                 }
-		for(int a = 0 ; a < num.size() ; ++a)
+		for(int a = 0; a < num.size(); ++a)
 		{
 			
 			
@@ -322,20 +322,20 @@ int main()
                 }
 	 	return name;
 	}
-	void printer(std::string name , std::string line)
+	void printer(std::string name, std::string line)
 	{
 		bool print_tester = false;
-		for(int a = 0 ; a < num.size() ; ++a)
+		for(int a = 0; a < num.size(); ++a)
         	{
-        		if(line.substr(name.length() + SIZE , num[a].name.length()) == num[a].name)
+        		if(line.substr(name.length() + SIZE, num[a].name.length()) == num[a].name)
                 	{
                 		std::cout << num[a].value;
                        	 	break;
 			}
        	 	}
-		for(int a = 0 ; a < grs.size() ; ++a)
+		for(int a = 0; a < grs.size(); ++a)
 		{
-			if(line.substr(name.length() + SIZE , grs[a].name.length()) == grs[a].name)
+			if(line.substr(name.length() + SIZE, grs[a].name.length()) == grs[a].name)
 			{
 				std::cout << grs[a].value;
 				break;
@@ -345,7 +345,7 @@ int main()
 		if(!print_tester)
                 {
                         std::string printer{};
-                        for(int i = first_name_founder(line).length() + SIZE ; line[i] != ' ' ; ++i )
+                        for(int i = first_name_founder(line).length() + SIZE; line[i] != ' '; ++i )
                         {
                                 printer += line[i];
                         }
@@ -360,29 +360,29 @@ int main()
 		{
 		    if(c == '&' || c == '|' || c == '~' || c == '>' || c == '<')
 		    {
-		       test = do_operation(line , c);
+		       test = do_operation(line, c);
 		    }
 		}
 	}
 	
-	void error_function(std::string line , int line_counter)
+	void error_function(std::string line, int line_counter)
         {
                 bool line_tester = false;
-                for(int i = 0 ; i < num.size() ; ++i)
+                for(int i = 0; i < num.size(); ++i)
                 {  
                    if(first_name_founder(line) == num[i].name || first_name_founder(line) == "grs" || first_name_founder(line) == "num")
                    {    
                         line_tester = true;
                    }
                 }
-                for(int i = 0 ; i < grs.size() ; ++i)
+                for(int i = 0; i < grs.size(); ++i)
                 {
                         if(first_name_founder(line) == grs[i].name)
                         {
                                 line_tester = true;
                         }
                 }
-                for(int i = 0 ; i < Keywords_Size ; ++i)
+                for(int i = 0; i < Keywords_Size; ++i)
                 {
                         if(first_name_founder(line) == key_words[i])
                         {
